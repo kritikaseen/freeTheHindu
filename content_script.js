@@ -1,5 +1,10 @@
 //Title
-var html_title = document.querySelector('h1.title').innerText;
+var html_title;
+try{
+	html_title = document.querySelector('h1.title').innerText;
+}catch(err){
+	html_title = document.querySelector('h2.special-article-heading').innerText;
+}
 var html_title_head = html_title;
 html_title = '<h1>' + html_title + '</h1>';
 
