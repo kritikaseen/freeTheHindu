@@ -1,0 +1,16 @@
+{
+  "name": "Free TheHindu",
+  "version": "1.0",
+  "description": "Now you can read The Hindu without any annoying ads or Subscription reminders or Monthly Reading Limit",
+  "permissions": ["activeTab"],
+  "icons": { "48": "icon48.png",
+          "128": "icon128.png" },
+  "content_scripts": [
+    {
+        "matches": ["https://www.thehindu.com/*"],
+        "js": ["/content_script.js"],
+        "all_frames": true
+    }
+  ],
+  "manifest_version": 2
+}
