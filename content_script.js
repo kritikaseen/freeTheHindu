@@ -20,7 +20,15 @@ catch(err) {
 
 //Main Content
 
-var html_body = document.querySelector('div.paywall').innerHTML;
+var html_body;
+
+try{
+	html_body = document.querySelector('div.paywall').innerHTML;
+
+}catch(err){
+	html_body_l = document.querySelectorAll('*[id^="content-body-"]');
+	html_body = html_body_l[0].innerHTML;
+}
 
 //Img Cleansing
 var html_body_cleaned = '';
@@ -57,8 +65,8 @@ while(html_body.indexOf("img-full-width",search_init) > -1){
 	html_body_cleaned += '<img src="'+img_replacement_url+'" style="width:100%;">';
 	search_init = ind_img_s;
 	
-	var ind_final = html_body.indexOf("div",search_init);
-	search_init = ind_final + 11;
+	var ind_final = html_body.indexOf("<p>",search_init);
+	search_init = ind_final;
 
 }
 
